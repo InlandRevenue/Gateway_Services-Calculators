@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "code": "EV1028",
+      "type": "security",
+      "message": "Authentication error, JWT signature validation failed"
+    }
+  ]
+}

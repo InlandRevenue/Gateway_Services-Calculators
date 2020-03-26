@@ -1,0 +1,17 @@
+{
+  "IRD": "123456789",
+  "PieIRD": "012345678",
+  "DOB": "1990-01-02",
+  "Name": {
+    "FirstName": "Gary",
+    "MiddleName": "",
+    "LastName": "Allen"
+  },
+  "Address": {
+    "Street": "123 HA CRESCENT",
+    "City": "AUCKLAND",
+    "PostCode": "2104",
+    "State": "",
+    "Country": "NZ"
+  }
+}

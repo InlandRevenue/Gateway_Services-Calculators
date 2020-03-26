@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "code": "EV1024",
+      "type": "security",
+      "message": "Authentication error"
+    }
+  ]
+}
