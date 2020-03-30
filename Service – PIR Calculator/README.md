@@ -42,15 +42,23 @@ The PIR Calculator API described in this build pack document provides a mechanis
 	    * [Positive response with Suggested PIR rate](sample%20messages/response_with_SuggestedPirRate.json)
 	    * [Positive response with PIR not found](sample%20messages/response_with_PirRateNotFound.json)
 	  
+	* Negative response - http 400
+	    * [EV1000 - No incoming POST Content found](sample%20messages/response_EV1000_NoIncomingPost.json)
+	    * [EV1100 - Invalid input parameters. Field: FormattedName](sample%20messages/response_EV1100_InvalidInputParametersFormattedName.json)
+	    * [EV1100 - Invalid input parameters. Field: IRD](sample%20messages/response_EV1100_InvalidInputParametersIRD.json)
+
 	* Negative response - http 401
-	    * [EV1020 - Token not valid](sample%20messages/response_EV1020_token_is_not_valid.json)
-	    * [EV1021 - No token](sample%20messages/response_EV1021_no_token.json)
-	    * [EV1022 - Access is not permitted](sample%20messages/response_EV1022_access_is_not_permitted.json)
-	    * [EV1100 - Invalid input parameter](sample%20messages/response_EV1100_invalid_input_parameter.json)
-	    * [EV1200 - Exceeds the maximum limit](sample%20messages/response_EV1200_exceed_the_max_limit.json)
-	    * [EV2234 - IR number failed check digit](sample%20messages/response_EV2234_IR_failed_check_digit.json)
-	    * [EV2235 - IR number not found](sample%20messages/response_EV2235_IR_not_found.json)
-	    
+	    * [EV1023 - No customer associated to TLS cert](sample%20messages/response_EV1023_NoCustomerAssoicatedToTLSCert.json)
+	    * [EV1024 - Authentication error](sample%20messages/response_EV1024_AuthenticationError.json)
+	    * [EV1025 - Missing token](sample%20messages/response_EV1025_MissingToken.json)
+	    * [EV1026 - Authentication error, Issued date or expiry date is invalid](sample%20messages/response_EV1026_AuthenticationErrorInvalidDate.json)
+	    * [EV1027 - Certificate or credential could not be found](sample%20messages/response_EV1027_CredentialNotFound.json)
+	    * [EV1028 - JWT signature validation failed](sample%20messages/response_EV1028_JWTSignatureFailed.json)
+	    * [EV1029 - JWT algorithm not configured](sample%20messages/response_EV1029_JWTAlgorithmNotConfigured.json)
+	    * [EV1041 - Logon associated to OAuth token does not have access to customer](sample%20messages/response_EV1041_LogonOauthTokenDoesNotHaveAccess.json)
+	    * [EV1042 - Unable to validate API consumer to JWT provided](sample%20messages/response_EV1042_UnableToValidateConsumerToJWT.json)
+ 	    * [EV1043 - Unable to validate JWT to IRD number provided](sample%20messages/response_EV1043_UnableToValidateJWTToMember.json)
+   
 ## Mock Environment Information
 ---
 ### Mock Emulated service URL
@@ -60,8 +68,8 @@ The PIR Calculator API described in this build pack document provides a mechanis
 
 ### Mock scenarios MindMap
 
-- [View larger image](images/Income%20API%20Emulator%20Mindmap.png)
-![Mock Scenarios](images/Income%20API%20Emulator%20Mindmap.png)
+- [View larger image](images/PIR%20Calculator%20API%20Mock%20Service%20Mindmap.png)
+![Mock Scenarios](images/PIR%20Calculator%20API%20Mock%20Service%20Mindmap.png)
 
 ### Test data
 
@@ -90,6 +98,10 @@ The PIR Calculator API described in this build pack document provides a mechanis
 | Pre-Production | https://test4.services.ird.govt.nz:4046/gateway/calculators/pir | 
 
 >**NOTE:** These endpoints are subject to change due to environment updates in the future. 
+### Test scenarios MindMap
+
+- [View larger image](images/PIR%20Calculator%20API%20on%20boarding%20scenarios%20Mindmap.png)
+![Test Scenarios](images/PIR%20Calculator%20API%20on%20boarding%20scenarios%20Mindmap.png)
 
 ### Test scenarios report template
 
@@ -102,8 +114,3 @@ The PIR Calculator API described in this build pack document provides a mechanis
 |--|--|
 | Production | https://services.ird.govt.nz:4046/gateway/calculators/pir |
 
-
-
-
-* [Prescribed Investor Rate (PIR)](Build%20pack%20-%20Prescribed%20Investor%20Rate%20Service.pdf)
-* [PIR Calculator (14).yaml](PIR%20Calculator%20(14).yaml)

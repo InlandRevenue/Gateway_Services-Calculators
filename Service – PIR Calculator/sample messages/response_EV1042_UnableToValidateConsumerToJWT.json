@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "code": "EV1042",
+      "type": "security",
+      "message": "Unable to validate API consumer to JWT provided"
+    }
+  ]
+}
