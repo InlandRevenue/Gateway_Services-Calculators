@@ -11,7 +11,7 @@ The PIR Calculator API described in this build pack document provides a mechanis
 ## Key Documentation
 ---
 - YAML file:
-	- View and download the [PIR Calculator YAML](PIR%20Calculator%20(14).yaml)
+	- View and download the [PIR Calculator YAML](PIR%20Calculator.yaml)
 
 - Build Pack 
 	- [Download the build pack](Build%20pack%20-%20Prescribed%20Investor%20Rate%20Service.pdf) to view data definitions of each operation and response status code definitions
@@ -28,7 +28,7 @@ The PIR Calculator API described in this build pack document provides a mechanis
 
 ## Supporting services
 ---
-- Service: Identity and Access - view: [How to integrate, OAuth requests and responses message samples and build pack](../Service%20-%20Identity%20and%20Access/Latest/)
+- Service: Identity and Access - view: [How to integrate, OAuth requests and responses message samples and build pack](https://github.com/InlandRevenue/Gateway_Services-Access/tree/master/Identity%20and%20Access)
 
 ## Message Samples
 ---
@@ -76,16 +76,19 @@ The PIR Calculator API described in this build pack document provides a mechanis
    - The following test data can be tested in our Mock Services environment when submitting requests to the service operations
    - This table shows which scenarios (as per their numbers in the mindmap) require specific data to trigger the expected responses.
 
-      Scenario ID | Data: IRD number | Http status | Response 
+      Scenario ID | Data | Http status | Response 
     	--- | --- | --- | ---
-    	MOCK-01, MOCK-02 | 019542033, 027083307, 069164331, 059637355, 081526583. Date range must include at least one day between 2013-07-31 and 2069-11-04 | 200 | List of Incomes
-    	MOCK-10 | 123612507 | 400 | EV1022 - Access is not permitted for the requester to perform this operation for the submitted identifier
-    	MOCK-11, MOCK-12, MOCK-13, MOCK-14, MOCK-15, MOCK-16, MOCK-17 | Any IRD number. E.g. 019542033. Request must be updated according to the scenario | 400 | EV1100 - Invalid input parameters. Please check documentation
-    	MOCK-20 | 123346718 | 400 | EV1200 - The number of records retrieved exceeds the maximum limit
-    	MOCK-30 | 111888222 | 400 | EV2234 - IR number failed check digit
-    	MOCK-40 | 123350375 | 400 | EV2235 - IR number not found
-    	MOCK-50 | 019542033, 027083307, 069164331, 059637355, 081526583. Date range must exclude days between 2013-07-31 and 2069-11-04 | 416 | Empty response body
-    	MOCK-51 | Any IRD number not used in any other scenarios. E.g. 023123023 | 416 | Empty response body
+    	PIR-EM-001 | IRD# = 139276507 | 200 | Suggested PIR 28%
+    	PIR-EM-002 | IRD# = 139276272 | 200 | Suggested PIR 17.5%
+    	PIR-EM-003 | IRD# = 139276310 | 200 | Suggested PIR 10.5%
+    	PIR-EM-004 | any IRD# not used in any other scenario. Example: 123987654 | 200 | PIR not found
+    	PIR-EM-005.01 | IRD# = 139276329 with header authorization containing word bearer | 401 | EV1041 - Logon does not have access
+    	PIR-EM-005.02 | IRD# = 139276329 with header authorization not containing word bearer or without header authorization | 401 | EV1043 - Unable to validate JWT token
+    	PIR-EM-006 | IRD# not provided in request payload | 400 | EV1100 - Invalid Input parameters. Field IRD
+    	PIR-EM-007 | Any IRD#. Example: 123456789 with Address and Country = "AB" | 400 | EV1100 - Invalid Input parameters. Field Country
+    	PIR-EM-008 | Any IRD# using invalid json format. Example: IRD# = 1234567890123 | 400 | EV1100 - Invalid Input parameters... (end of error message can vary according to json format)
+    	PIR-EM-009 | Any IRD# using a wrong endpoint. Example: https://mock-pir.ird.digitalpartner.services/secure/gateway/calculators/wrong | 404 | Not found
+    	PIR-EM-010 | Using method GET | 405 | Method Not Allowed
 
 >**NOTE:** The emulated service is not managing authentication. Access delegation/restriction is not emulated and any user has access to the test data.
 
@@ -100,8 +103,8 @@ The PIR Calculator API described in this build pack document provides a mechanis
 >**NOTE:** These endpoints are subject to change due to environment updates in the future. 
 ### Test scenarios MindMap
 
-- [View larger image](images/PIR%20Calculator%20API%20on%20boarding%20scenarios%20Mindmap.png)
-![Test Scenarios](images/PIR%20Calculator%20API%20on%20boarding%20scenarios%20Mindmap.png)
+- [View larger image](images/PIR%20Calculator%20API%20Onboarding%20scenarios%20Mindmap.png)
+![Test Scenarios](images/PIR%20Calculator%20API%20Onboarding%20scenarios%20Mindmap.png)
 
 ### Test scenarios report template
 
