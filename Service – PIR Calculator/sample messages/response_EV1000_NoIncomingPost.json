@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "code": "EV1000",
+      "type": "validation",
+      "message": "No incoming POST content found"
+    }
+  ]
+}

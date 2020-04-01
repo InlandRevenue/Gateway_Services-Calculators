@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "code": "EV1023",
+      "type": "security",
+      "message": "No customer associated to TLS cert"
+    }
+  ]
+}

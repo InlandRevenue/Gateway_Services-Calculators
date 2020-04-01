@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "code": "EV1025",
+      "type": "security",
+      "message": "Missing OAuth or JWT token in the HTTP header"
+    }
+  ]
+}

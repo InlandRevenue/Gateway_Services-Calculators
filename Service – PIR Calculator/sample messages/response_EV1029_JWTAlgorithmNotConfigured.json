@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "code": "EV1029",
+      "type": "security",
+      "message": "Authentication error, JWT algorithm not configured on credential doc"
+    }
+  ]
+}

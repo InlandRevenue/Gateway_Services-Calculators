@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "code": "EV1043",
+      "type": "security",
+      "message": "Unable to validate JWT to member/investor IRD number provided"
+    }
+  ]
+}

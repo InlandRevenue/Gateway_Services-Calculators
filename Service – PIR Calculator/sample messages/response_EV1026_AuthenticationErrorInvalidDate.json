@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "code": "EV1026",
+      "type": "security",
+      "message": "Authentication error, Issued date or expiry date is invalid"
+    }
+  ]
+}
