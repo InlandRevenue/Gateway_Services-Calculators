@@ -3,5 +3,5 @@
 
 # Prescribed Investor Rate Service 
 
-* [Prescribed Investor Rate (PIR)](Build%20pack%20-%20Prescribed%20Investor%20Rate%20Service.pdf)
-* [PIR Calculator (14).yaml](PIR%20Calculator%20(14).yaml)
+* [Prescribed Investor Rate (PIR)](Gateway%20Services%20Build%20Pack%20-%20Return%20Service%20-%20PIE.pdf) *version 0.8*
+* [PIR Calculator (14).yaml](PIR%20Calculator%20(14).yaml) *version 0.8*
