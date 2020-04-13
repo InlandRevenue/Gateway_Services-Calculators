@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "code": "EV1041",
+      "type": "security",
+      "message": "Start logon associated to OAuth token does not have access to member/investor customer"
+    }
+  ]
+}
