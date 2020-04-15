@@ -4,31 +4,39 @@
 # PIR Calculator Service
 ---
 #### Release version 1.0
-The PIR Calculator API described in this build pack document provides a mechanism for external partners to retrieve the suggested PIR (Prescribed Investor Rate) for a customer.
+
+The Prescribed Investor Rate (PIR) calculator service is a REST API that provides a suggested prescribed investor rate for an individual customer.
+
+#### How the PIR calculator service works
+Income from PIE (portfolio investment entity) investments is taxed at a rate called the prescribed investor rate or PIR.
+
+Because PIRs are chosen when a customer opens an account but the tax is squared up at a later date, the PIR may be out of date. The PIR calculator service can assist in this scenario by providing a suggested prescribed investor rate for an individual customer.
+
+The customer in consultation with their PIE provider is responsible for using the correct prescribed investor rate.
 
 >**NOTE:** The PIR calculator API Service is only available to Digital Service Providers who use X.509 Digital Certificate used for Mutual TLS on port 4046 and requires OAuth2 or JWT token.
 
-## Key Documentation
+## Key documentation
 ---
 - YAML file:
 	- View and download the [PIR Calculator YAML](PIR%20Calculator%202020-04-08.yaml)
 
-- Build Pack 
-	- [Download the build pack](Build%20pack%20-%20Prescribed%20Investor%20Rate%20Service.pdf) to view data definitions of each operation and response status code definitions
+- Build pack 
+	- [Download the PIR Calculator Service build pack](Build%20pack%20-%20Prescribed%20Investor%20Rate%20Service.pdf) to view data definitions of each operation and response status code definitions
 	
-- Message Samples
+- Message samples
 	* [View message samples for requests and responses](#-message-samples)
 
-## Environment Information
-- [Mock Environment Information - Emulated Services, MindMap and Test data](#-mock-environment-information)
-- [Test Environment Information - Test Scenarios Report Template and URL Endpoints](#-test-environment-information)
-- [Production Environment Information - URL Endpoint](#-prod-environment-information)
+## Environment information
+- [Mock environment information - emulated services, mind map and test data](#-mock-environment-information)
+- [Test environment information - test scenarios report template and URL endpoints](#-test-environment-information)
+- [Production environment information - URL endpoint](#-prod-environment-information)
 
 ## Supporting services
 ---
 - Service: Identity and Access - view: [How to integrate, OAuth requests and responses message samples and build pack](https://github.com/InlandRevenue/Gateway_Services-Access/tree/master/Identity%20and%20Access)
 
-## Message Samples
+## Message samples
 ---
 * Sample JSON payload messages
 	* Requests
@@ -57,15 +65,15 @@ The PIR Calculator API described in this build pack document provides a mechanis
 	    * [EV1042 - Unable to validate API consumer to JWT provided](sample%20messages/response_EV1042_UnableToValidateConsumerToJWT.json)
  	    * [EV1043 - Unable to validate JWT to IRD number provided](sample%20messages/response_EV1043_UnableToValidateJWTToMember.json)
    
-## Mock Environment Information
+## Mock environment information
 ---
-### Mock Emulated service URL
+### Mock emulated service URLs
 | End point|  URL|
 |--|--|
 | Landing Page| https://mock-pir.ird.digitalpartner.services |
 | Mock PIR operation | https://mock-pir.ird.digitalpartner.services/secure/gateway/calculators/pir |
 
-### Mock scenarios MindMap
+### Mock scenarios mind map
 
 - [View larger image](images/PIR%20Calculator%20API%20Mock%20Service%20Mindmap.png)
 ![Mock Scenarios](images/PIR%20Calculator%20API%20Mock%20Service%20Mindmap.png)
@@ -93,7 +101,7 @@ PIR-EM-010 | Using method GET | 405 | Method Not Allowed
 
 ## Test environment information
 ---
-### Test environment URL
+### Test environment URLs
 | End point|  URL|
 |--|--|
 | Testing | https://test3.services.ird.govt.nz:4046/gateway/calculators/pir |    
@@ -101,7 +109,7 @@ PIR-EM-010 | Using method GET | 405 | Method Not Allowed
 
 >**NOTE:** These endpoints are subject to change due to environment updates in the future. 
 
-### Test scenarios MindMap
+### Test scenarios mind map
 
 - [View larger image](images/PIR%20Calculator%20API%20Onboarding%20scenarios%20Mindmap.png)
 ![Test Scenarios](images/PIR%20Calculator%20API%20Onboarding%20scenarios%20Mindmap.png)
@@ -116,11 +124,3 @@ PIR-EM-010 | Using method GET | 405 | Method Not Allowed
 | End point|  URL|
 |--|--|
 | Production | https://services.ird.govt.nz:4046/gateway/calculators/pir |
-
-## Related Gateway Services repositories
-
-* Gateway Services - [Returns and Information](https://github.com/InlandRevenue/Gateway_Services-Returns-and-Information)
-* Gateway Services - [Customer and Accounts](https://github.com/InlandRevenue/Gateway_Services-Customer-and-Account)
-* Gateway Services - [Communication](https://github.com/InlandRevenue/Gateway_Services-Communication)
-* Gateway Services - [Access](https://github.com/InlandRevenue/Gateway_Services-Access)
-* Gateway Services - [Transaction Data Services](https://github.com/InlandRevenue/Gateway_Services-Transaction-data-services)
