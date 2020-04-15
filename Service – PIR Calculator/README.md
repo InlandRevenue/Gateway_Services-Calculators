@@ -7,7 +7,7 @@
 
 The Prescribed Investor Rate (PIR) calculator service is a REST API that provides a suggested prescribed investor rate for an individual customer.
 
-####### How the PIR calculator service works
+#### How the PIR calculator service works
 Income from PIE (portfolio investment entity) investments is taxed at a rate called the prescribed investor rate or PIR.
 
 Because PIRs are chosen when a customer opens an account but the tax is squared up at a later date, the PIR may be out of date. The PIR calculator service can assist in this scenario by providing a suggested prescribed investor rate for an individual customer.
