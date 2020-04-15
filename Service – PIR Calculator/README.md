@@ -1,7 +1,7 @@
 ![IRD logo](../Images/IRlogo.gif)
 ![Software Dev](../Images/SoftwareDev.png)
 
-# Prescribed Investor Rate Service 
+# PIR Calculator Service
 ---
 #### Release version 1.0
 The PIR Calculator API described in this build pack document provides a mechanism for external partners to retrieve the suggested PIR (Prescribed Investor Rate) for a customer.
@@ -11,7 +11,7 @@ The PIR Calculator API described in this build pack document provides a mechanis
 ## Key Documentation
 ---
 - YAML file:
-	- View and download the [PIR Calculator YAML](PIR%20Calculator.yaml)
+	- View and download the [PIR Calculator YAML](PIR%20Calculator%202020-04-08.yaml)
 
 - Build Pack 
 	- [Download the build pack](Build%20pack%20-%20Prescribed%20Investor%20Rate%20Service.pdf) to view data definitions of each operation and response status code definitions
@@ -21,9 +21,7 @@ The PIR Calculator API described in this build pack document provides a mechanis
 
 ## Environment Information
 - [Mock Environment Information - Emulated Services, MindMap and Test data](#-mock-environment-information)
-
 - [Test Environment Information - Test Scenarios Report Template and URL Endpoints](#-test-environment-information)
-
 - [Production Environment Information - URL Endpoint](#-prod-environment-information)
 
 ## Supporting services
@@ -64,7 +62,8 @@ The PIR Calculator API described in this build pack document provides a mechanis
 ### Mock Emulated service URL
 | End point|  URL|
 |--|--|
-| Mock | https://mock-pir.ird.digitalpartner.services/secure/gateway/calculators/pir |
+| Landing Page| https://mock-pir.ird.digitalpartner.services |
+| Mock PIR operation | https://mock-pir.ird.digitalpartner.services/secure/gateway/calculators/pir |
 
 ### Mock scenarios MindMap
 
@@ -73,22 +72,22 @@ The PIR Calculator API described in this build pack document provides a mechanis
 
 ### Test data
 
-   - The following test data can be tested in our Mock Services environment when submitting requests to the service operations
-   - This table shows which scenarios (as per their numbers in the mindmap) require specific data to trigger the expected responses.
+- The following test data can be tested in our Mock Services environment when submitting requests to the service operations
+- This table shows which scenarios (as per their numbers in the mindmap) require specific data to trigger the expected responses.
 
-      Scenario ID | Data | Http status | Response 
-    	--- | --- | --- | ---
-    	PIR-EM-001 | IRD# = 139276507 | 200 | Suggested PIR 28%
-    	PIR-EM-002 | IRD# = 139276272 | 200 | Suggested PIR 17.5%
-    	PIR-EM-003 | IRD# = 139276310 | 200 | Suggested PIR 10.5%
-    	PIR-EM-004 | any IRD# not used in any other scenario. Example: 123987654 | 200 | PIR not found
-    	PIR-EM-005.01 | IRD# = 139276329 with header authorization containing word bearer | 401 | EV1041 - Logon does not have access
-    	PIR-EM-005.02 | IRD# = 139276329 with header authorization not containing word bearer or without header authorization | 401 | EV1043 - Unable to validate JWT token
-    	PIR-EM-006 | IRD# not provided in request payload | 400 | EV1100 - Invalid Input parameters. Field IRD
-    	PIR-EM-007 | Any IRD#. Example: 123456789 with Address and Country = "AB" | 400 | EV1100 - Invalid Input parameters. Field Country
-    	PIR-EM-008 | Any IRD# using invalid json format. Example: IRD# = 1234567890123 | 400 | EV1100 - Invalid Input parameters... (end of error message can vary according to json format)
-    	PIR-EM-009 | Any IRD# using a wrong endpoint. Example: https://mock-pir.ird.digitalpartner.services/secure/gateway/calculators/wrong | 404 | Not found
-    	PIR-EM-010 | Using method GET | 405 | Method Not Allowed
+Scenario ID | Data | Http status | Response 
+--- | --- | --- | ---
+PIR-EM-001 | IRD# = 139276507 | 200 | Suggested PIR 28%
+PIR-EM-002 | IRD# = 139276272 | 200 | Suggested PIR 17.5%
+PIR-EM-003 | IRD# = 139276310 | 200 | Suggested PIR 10.5%
+PIR-EM-004 | any IRD# not used in any other scenario. Example: 123987654 | 200 | PIR not found
+PIR-EM-005.01 | IRD# = 139276329 with header authorization containing word bearer | 401 | EV1041 - Logon does not have access
+PIR-EM-005.02 | IRD# = 139276329 with header authorization not containing word bearer or without header authorization | 401 | EV1043 - Unable to validate JWT token
+PIR-EM-006 | IRD# not provided in request payload | 400 | EV1100 - Invalid Input parameters. Field IRD
+PIR-EM-007 | Any IRD#. Example: 123456789 with Address and Country = "AB" | 400 | EV1100 - Invalid Input parameters. Field Country
+PIR-EM-008 | Any IRD# using invalid json format. Example: IRD# = 1234567890123 | 400 | EV1100 - Invalid Input parameters... (end of error message can vary according to json format)
+PIR-EM-009 | Any IRD# using a wrong endpoint. Example: https://mock-pir.ird.digitalpartner.services/secure/gateway/calculators/wrong | 404 | Not found
+PIR-EM-010 | Using method GET | 405 | Method Not Allowed
 
 >**NOTE:** The emulated service is not managing authentication. Access delegation/restriction is not emulated and any user has access to the test data.
 
@@ -97,10 +96,11 @@ The PIR Calculator API described in this build pack document provides a mechanis
 ### Test environment URL
 | End point|  URL|
 |--|--|
-| Testing | https://test5.services.ird.govt.nz:4046/gateway/calculators/pir |    
+| Testing | https://test3.services.ird.govt.nz:4046/gateway/calculators/pir |    
 | Pre-Production | https://test4.services.ird.govt.nz:4046/gateway/calculators/pir | 
 
 >**NOTE:** These endpoints are subject to change due to environment updates in the future. 
+
 ### Test scenarios MindMap
 
 - [View larger image](images/PIR%20Calculator%20API%20Onboarding%20scenarios%20Mindmap.png)
@@ -117,3 +117,10 @@ The PIR Calculator API described in this build pack document provides a mechanis
 |--|--|
 | Production | https://services.ird.govt.nz:4046/gateway/calculators/pir |
 
+## Related Gateway Services repositories
+
+* Gateway Services - [Returns and Information](https://github.com/InlandRevenue/Gateway_Services-Returns-and-Information)
+* Gateway Services - [Customer and Accounts](https://github.com/InlandRevenue/Gateway_Services-Customer-and-Account)
+* Gateway Services - [Communication](https://github.com/InlandRevenue/Gateway_Services-Communication)
+* Gateway Services - [Access](https://github.com/InlandRevenue/Gateway_Services-Access)
+* Gateway Services - [Transaction Data Services](https://github.com/InlandRevenue/Gateway_Services-Transaction-data-services)
