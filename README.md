@@ -6,8 +6,7 @@
 Use this repository to access software development kits (SDKs) for calculator services offered through Inland Revenue's gateway services.
 
 ## [PIR Calculator Service](./Service%20–%20PIR%20Calculator)
-* The Prescribed Investor Rate (PIR) calculator service provides a suggested prescribed investor rate for an individual customer.
-* It is intended to be used by the Portfolio Investment Entity (PIE) providers.
+The Prescribed Investor Rate (PIR) calculator service provides a suggested prescribed investor rate for an individual customer.
 
 ## Related Gateway Services repositories
 
