@@ -25,17 +25,18 @@ The customer in consultation with their PIE provider is responsible for using th
 	- [Download the PIR Calculator Service build pack](Build%20pack%20-%20Prescribed%20Investor%20Rate%20Service.pdf) to view data definitions of each operation and response status code definitions
 	
 - Message samples
-	* [View message samples for requests and responses](#-message-samples)
+	* [View message samples for requests and responses](#MessageSamples)
 
 ## Environment information
-- [Mock environment information - emulated services, mind map and test data](#-mock-environment-information)
-- [Test environment information - test scenarios report template and URL endpoints](#-test-environment-information)
-- [Production environment information - URL endpoint](#-prod-environment-information)
+- [Mock environment information - emulated services, mind map and test data](#MockEnvironmentInformation)
+- [Test environment information - test scenarios report template and URL endpoints](#TestEnvironmentInformation)
+- [Production environment information - URL endpoint](#ProdEnvironmentInformation)
 
 ## Supporting services
 ---
 - Service: Identity and Access - view: [How to integrate, OAuth requests and responses message samples and build pack](https://github.com/InlandRevenue/Gateway_Services-Access/tree/master/Identity%20and%20Access)
 
+<a name="MessageSamples"></a>
 ## Message samples
 ---
 * Sample JSON payload messages
@@ -65,6 +66,8 @@ The customer in consultation with their PIE provider is responsible for using th
 	    * [EV1042 - Unable to validate API consumer to JWT provided](sample%20messages/response_EV1042_UnableToValidateConsumerToJWT.json)
  	    * [EV1043 - Unable to validate JWT to IRD number provided](sample%20messages/response_EV1043_UnableToValidateJWTToMember.json)
    
+   
+<a name="MockEnvironmentInformation"></a>   
 ## Mock environment information
 ---
 ### Mock emulated service URLs
@@ -99,6 +102,7 @@ PIR-EM-010 | Using method GET | 405 | Method Not Allowed
 
 >**NOTE:** The emulated service is not managing authentication. Access delegation/restriction is not emulated and any user has access to the test data.
 
+<a name="TestEnvironmentInformation"></a>  
 ## Test environment information
 ---
 ### Test environment URLs
@@ -118,6 +122,7 @@ PIR-EM-010 | Using method GET | 405 | Method Not Allowed
 
 - [Download Test Scenarios report template](PIR%20Calculator%20Service%20-%20Test%20Report%20Template.docx)
 
+<a name="ProdEnvironmentInformation"></a>  
 ## Prod environment information
 ---
 ### Prod environment URL
