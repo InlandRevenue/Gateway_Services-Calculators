@@ -108,8 +108,8 @@ PIR-EM-010 | Using method GET | 405 | Method Not Allowed
 ### Test environment URLs
 | End point|  URL|
 |--|--|
-| Testing | https://test3.services.ird.govt.nz:4046/gateway/calculators/pir |    
-| Pre-Production | https://test4.services.ird.govt.nz:4046/gateway/calculators/pir | 
+| Testing | https://test5.services.ird.govt.nz:4046/gateway/calculators/pir |    
+| Pre-Production | https://test6.services.ird.govt.nz:4046/gateway/calculators/pir | 
 
 >**NOTE:** These endpoints are subject to change due to environment updates in the future. 
 
