@@ -2,7 +2,7 @@ swagger: '2.0'
 info: 
   title: PIR Calculator
   version: ""
-host: test3.services.ird.govt.nz
+host: test5.services.ird.govt.nz:4046
 basePath: /gateway/calculators/
 schemes: 
   - https
@@ -93,7 +93,7 @@ total of 9 characters</p>'
         minLength: 9
       FormattedName: 
         type: string
-        description: '<p>The investor''s formatted name</p>'
+        description: '<p>The investor''s name in ''last,first'' format for individual. Either this name or the name object must be provided. Example: Smith, John Doe</p>'
         maxLength: 255
       Name: 
         type: object
@@ -112,7 +112,7 @@ total of 9 characters</p>'
             maxLength: 50
           LastName: 
             type: string
-            description: "<p>The investor's last name - Inputs:\r\n<ul>\r\n   <li>Before matching occurs phonetic codes are generated for every name. These codes will be used to search names for a base result.</li>\r\n   <ul>\r\n      <li>A phonetic code represents how a names or like names sound when they are spoken (in English).</li>\r\n      <ul>\r\n         <li>\r\n            For example, Jon and John both sound the same and would therefore generate the same phonetic code: \r\n            <ul>\r\n               <li>John = X12</li>\r\n               <li>Jon = X12</li>\r\n               <li>Eric = X32</li>\r\n            </ul>\r\n         </li>\r\n      </ul>\r\n   </ul>\r\n   <li>Next, the inputs are cleaned to ensure a uniform comparison between inputs to the matching and the data in our system. All accents and uncessary accents are removed.</li>\r\n   <ul>\r\n      <li>Ex.  Ren\xe9e M\xe1ty\xe1\u2019s will result in RENEE MATYAS</li>\r\n   </ul>\r\n   </li>\r\n   <li>Then we standardize commonly used abbreviations</li>\r\n   <ul>\r\n      <li>JOHNSONS W/S becomes JOHNSONS WHOLESALE</li>\r\n      <li>WAREHOUSE LIMITED LIABLITY COMPANY becomes WAREHOUSE LLC</li>\r\n   </ul>\r\n   </li>\r\n   <li>Remove all honorifics</li>\r\n   <ul>\r\n      <li>Mr/Ms/Mrs/Dr, etc.</li>\r\n   </ul>\r\n   </li>\r\n</ul>\r\n</ul>\r\n</ul>\r\n</p>\r\n<p>Results:\r\n<ul>\r\n   <li>If there is only one taxpayer brought back from the first-name last-name combination, then the date-of-birth is not used, and the result is then returned with a 100% match</li>\r\n   <li>If a diminutive of the first-name + last-name results in a single record, then the match percentage = 100%.  Diminutive names are included in the search, for example Steve, Stephen, Steven or Jennifer Jenny, Jennie. Example list of diminutive names: https://github.com/carltonnorthern/nickname-and-diminutive-names-lookup</li>\r\n   <li>If there are multiple results, then we compute similarities and apply a weighted score</li>\r\n   <li>Date-of-birth is not a hard match and is will only be used to score results that have more than one record for the names.</li>\r\n   <ul>\r\n      <li>We use JaroWrinkler to find the similarities between the input and the result set. Ex. If we send in John Smith we may have 3 potential customers is could be:</li>\r\n      <ul>\r\n         <li>John Smith  is 98% similar to Jon Smith</li>\r\n         <li>John Smith  is 97% similar to John Smit</li>\r\n         <li>John Smith  is 95% similar to Jon Smithe \r\n      </ul>\r\n      <li>One we have looked up secondary information (DOB) for each name and scored them we apply a weighting matrix to each secondary piece of information (only if that information was passed in)</li>\r\n      <li>Ex.</li>\r\n      <ul>\r\n         First Name Weight = 0.8</li>\r\n         <li>Middle Name Weight = 0.3</li>\r\n         <li>Last Name Weight = 1</li>\r\n         <li>Date Of Birth Weight = 0.8</li>\r\n      </ul>\r\n      <li>Then we apply each score to each weight for a total score</li>\r\n      <li>Sort by the best combined score and return the result</li>\r\n   </ul>\r\n</ul>\r\n</p>"
+            description: '<p>The investor''s last name</p>'
             maxLength: 50
             minLength: 1
       Dob: 
@@ -120,7 +120,7 @@ total of 9 characters</p>'
         description: '<p>The investor''s date of birth. Format: yyyy-MM-dd</p>'
       FormattedAddress: 
         type: string
-        description: '<p>The investor''s formatted address</p>'
+        description: '<p>The investor''s formatted address as single string. Either this address or the address object must be provided. Example: 123 Easy Street, Te Aro, Wellington 6011</p>'
         maxLength: 255
       Address: 
         type: object
