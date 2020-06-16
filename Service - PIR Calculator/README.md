@@ -19,7 +19,7 @@ The customer in consultation with their PIE provider is responsible for using th
 ## Key documentation
 ---
 - YAML file:
-	- View and download the [PIR Calculator YAML](PIR%20Calculator%202020-04-08.yaml)
+	- View and download the [PIR Calculator YAML](PIR%20Calculator%202020-05-28.yaml)
 
 - Build pack 
 	- [Download the PIR Calculator Service build pack](Build%20pack%20-%20Prescribed%20Investor%20Rate%20Service.pdf) to view data definitions of each operation and response status code definitions
