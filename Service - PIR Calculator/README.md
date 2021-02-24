@@ -19,7 +19,7 @@ The customer in consultation with their PIE provider is responsible for using th
 ## Key documentation
 ---
 - YAML file:
-	- View and download the [PIR Calculator YAML](PIR%20Calculator%202020-05-28.yaml)
+	- View and download the [PIR Calculator YAML](PIR%20Calculator%202020-02-22.yaml)
 
 - Build pack 
 	- [Download the PIR Calculator Service build pack](Build%20pack%20-%20Prescribed%20Investor%20Rate%20Service.pdf) to view data definitions of each operation and response status code definitions
@@ -102,6 +102,9 @@ PIR-EM-010 | Using method GET | 405 | Method Not Allowed
 
 >**NOTE:** The emulated service is not managing authentication. Access delegation/restriction is not emulated and any user has access to the test data.
 
+
+
+
 <a name="TestEnvironmentInformation"></a>  
 ## Test environment information
 ---
@@ -109,7 +112,6 @@ PIR-EM-010 | Using method GET | 405 | Method Not Allowed
 | End point|  URL|
 |--|--|
 | Testing | https://test5.services.ird.govt.nz:4046/gateway/calculators/pir |    
-| Pre-Production | https://test6.services.ird.govt.nz:4046/gateway/calculators/pir | 
 
 >**NOTE:** These endpoints are subject to change due to environment updates in the future. 
 
