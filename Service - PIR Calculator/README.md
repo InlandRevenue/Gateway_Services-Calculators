@@ -73,8 +73,8 @@ The customer in consultation with their PIE provider is responsible for using th
 ### Mock emulated service URLs
 | End point|  URL|
 |--|--|
-| Landing Page| https://mock-pir.ird.digitalpartner.services |
-| Mock PIR operation | https://mock-pir.ird.digitalpartner.services/secure/gateway/calculators/pir |
+| Landing Page| https://pir.test.services.ird.govt.nz |
+| Mock PIR operation | https://pir.test.services.ird.govt.nz/gateway/calculators/pir |
 
 ### Mock scenarios mind map
 
@@ -97,7 +97,7 @@ PIR-EM-005.02 | IRD# = 139276329 with header authorization not containing word b
 PIR-EM-006 | IRD# not provided in request payload | 400 | EV1100 - Invalid Input parameters. Field IRD
 PIR-EM-007 | Any IRD#. Example: 123456789 with Address and Country = "AB" | 400 | EV1100 - Invalid Input parameters. Field Country
 PIR-EM-008 | Any IRD# using invalid json format. Example: IRD# = 1234567890123 | 400 | EV1100 - Invalid Input parameters... (end of error message can vary according to json format)
-PIR-EM-009 | Any IRD# using a wrong endpoint. Example: https://mock-pir.ird.digitalpartner.services/secure/gateway/calculators/wrong | 404 | Not found
+PIR-EM-009 | Any IRD# using a wrong endpoint. Example: https://mock-pir.ird.digitalpartner.services/gateway/calculators/wrong | 404 | Not found
 PIR-EM-010 | Using method GET | 405 | Method Not Allowed
 
 >**NOTE:** The emulated service is not managing authentication. Access delegation/restriction is not emulated and any user has access to the test data.
