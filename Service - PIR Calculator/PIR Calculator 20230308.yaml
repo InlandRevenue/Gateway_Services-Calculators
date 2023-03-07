@@ -2,7 +2,7 @@ swagger: '2.0'
 info: 
   title: PIR Calculator
   description: A REST API Service that provides a suggested prescribed investor rate for an individual customer.
-  version: ""
+  version: "20230308"
 host: services.ird.govt.nz
 basePath: /gateway/calculators/
 schemes: 
