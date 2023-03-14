@@ -1,0 +1,9 @@
+{
+    "errors": [
+        {
+            "code": "PER100",
+            "type": "validation",
+            "message": "FilingPeriod provided is not a valid period on customer."
+        }
+    ]
+}
