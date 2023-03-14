@@ -28,8 +28,7 @@ The customer in consultation with their PIE provider is responsible for using th
 	* [View message samples for requests and responses](#MessageSamples)
 
 ## Environment information
-- [Mock environment information - emulated services, mind map and test data](#MockEnvironmentInformation)
-- [Test environment information - test scenarios report template and URL endpoints](#TestEnvironmentInformation)
+- [Mock environment information - emulated services, mind map, test scenarios report template and test data](#MockEnvironmentInformation)
 - [Production environment information - URL endpoint](#ProdEnvironmentInformation)
 
 ## Supporting services
@@ -42,8 +41,9 @@ The customer in consultation with their PIE provider is responsible for using th
 * Sample JSON payload messages
 	* Requests
 	    * [Request with mandatory attributes only](sample%20messages/request_with_mandatory_attributes.json)
-	    * [Request with optional attributes: DOB, FormattedName and FormattedAddress](sample%20messages/request_with_optional_attributes_1.json)
-	    * [Request with optional attributes: DOB, Name and Address](sample%20messages/request_with_optional_attributes_2.json)
+	    * [Request with optional attributes: PieIRD, DOB, FormattedName, FormattedAddress](sample%20messages/request_with_optional_attributes_1.json)
+	    * [Request with optional attributes: PieIRD, DOB, Name, Address](sample%20messages/request_with_optional_attributes_2.json)
+		* [Request with optional attributes: PieIRD, FilingPeriod](sample%20messages/request_with_optional_attributes_2.json)
 	    
 	* Positive responses
 	    * [Positive response with Suggested PIR rate](sample%20messages/response_with_SuggestedPirRate.json)
@@ -53,7 +53,10 @@ The customer in consultation with their PIE provider is responsible for using th
 	    * [EV1000 - No incoming POST Content found](sample%20messages/response_EV1000_NoIncomingPost.json)
 	    * [EV1100 - Invalid input parameters. Field: FormattedName](sample%20messages/response_EV1100_InvalidInputParametersFormattedName.json)
 	    * [EV1100 - Invalid input parameters. Field: IRD](sample%20messages/response_EV1100_InvalidInputParametersIRD.json)
-
+		* [EV1100 - Invalid input parameters. Field: FilingPeriod](sample%20messages/response_EV1100_InvalidInputParametersFilingPeriod.json)
+		* [PER100 - FilingPeriod provided is not a valid period on customer](sample%20messages/response_PER100_InvalidFilingPeriod.json)
+		* [PIR101 - PieIRD must be provided. (sample%20messages/response_PIR101_PieIRDIsRequired.json)
+		
 	* Negative response - http 401
 	    * [EV1023 - No customer associated to TLS cert](sample%20messages/response_EV1023_NoCustomerAssoicatedToTLSCert.json)
 	    * [EV1024 - Authentication error](sample%20messages/response_EV1024_AuthenticationError.json)
@@ -81,44 +84,35 @@ The customer in consultation with their PIE provider is responsible for using th
 - [View larger image](images/PIR%20Calculator%20API%20Mock%20Service%20Mindmap.png)
 ![Mock Scenarios](images/PIR%20Calculator%20API%20Mock%20Service%20Mindmap.png)
 
+- [Onboarding Scenarios](images/PIR%20Calculator%20API%20Onboarding%20scenarios%20Mindmap.png)
+![Onboarding Scenarios](images/PIR%20Calculator%20API%20Onboarding%20scenarios%20Mindmap.png)
+
 ### Test data
 
 - The following test data can be tested in our Mock Services environment when submitting requests to the service operations
 - This table shows which scenarios (as per their numbers in the mindmap) require specific data to trigger the expected responses.
 
-Scenario ID | Data | Http status | Response 
---- | --- | --- | ---
-PIR-EM-001 | IRD# = 139276507 | 200 | Suggested PIR 28%
-PIR-EM-002 | IRD# = 139276272 | 200 | Suggested PIR 17.5%
-PIR-EM-003 | IRD# = 139276310 | 200 | Suggested PIR 10.5%
-PIR-EM-004 | any IRD# not used in any other scenario. Example: 123987654 | 200 | PIR not found
-PIR-EM-005.01 | IRD# = 139276329 with header authorization containing word bearer | 401 | EV1041 - Logon does not have access
-PIR-EM-005.02 | IRD# = 139276329 with header authorization not containing word bearer or without header authorization | 401 | EV1043 - Unable to validate JWT token
-PIR-EM-006 | IRD# not provided in request payload | 400 | EV1100 - Invalid Input parameters. Field IRD
-PIR-EM-007 | Any IRD#. Example: 123456789 with Address and Country = "AB" | 400 | EV1100 - Invalid Input parameters. Field Country
-PIR-EM-008 | Any IRD# using invalid json format. Example: IRD# = 1234567890123 | 400 | EV1100 - Invalid Input parameters... (end of error message can vary according to json format)
-PIR-EM-009 | Any IRD# using a wrong endpoint. Example: https://mock-pir.ird.digitalpartner.services/gateway/calculators/wrong | 404 | Not found
-PIR-EM-010 | Using method GET | 405 | Method Not Allowed
+| Scenario ID | Data                                                                                                                                                                                       | Http status | Response                                                                                      |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | --------------------------------------------------------------------------------------------- |
+| PIR-EM200 1 | IRD# = 139276507                                                                                                                                                                           | 200         | Suggested PIR 28%                                                                             |
+| PIR-EM200 2 | IRD# = 139276310                                                                                                                                                                           | 200         | Suggested PIR 10.5%                                                                           |
+| PIR-EM200 3 | IRD# = 139276272                                                                                                                                                                           | 200         | Suggested PIR 17.5%                                                                           |
+| PIR-EM200 4 | IRD# = 139439976 and no PieIRD                                                                                                                                                             | 200         | Suggested PIR 10.5%                                                                           |
+| PIR-EM200 5 | any IRD# not used in any other scenario. Example: 123987654                                                                                                                                | 200         | PIR not found                                                                                 |
+| PIR-EM401 1 | IRD# = 139276329 with header authorization containing word bearer                                                                                                                          | 401         | EV1041 - Logon does not have access                                                           |
+| PIR-EM401 2 | IRD# = 139276329 with header authorization not containing word bearer or without header authorization                                                                                      | 401         | EV1043 - Unable to validate JWT token                                                         |
+| PIR-EM400 1 | IRD# not provided in request payload                                                                                                                                                       | 400         | EV1100 - Invalid Input parameters. Field IRD                                                  |
+| PIR-EM400 2 | Any IRD#. Example: 123456789 with Address and Country = "AB"                                                                                                                               | 400         | EV1100 - Invalid Input parameters. Field Country                                              |
+| PIR-EM400 3 | Any IRD# using invalid json format. Example: IRD# = 1234567890123                                                                                                                          | 400         | EV1100 - Invalid Input parameters... (end of error message can vary according to json format) |
+| PIR-EM400 4 | Add FilingPeriod field not in the yyyy-MM-dd format                                                                                                                                        | 400         | EV1100 - Invalid Input parameters. FilingPeriod                                               |
+| PIR-EM400 5 | Add FilingPeriod with any year 8years or more from now<br>e.g. "2015-03-31"                                                                                                                | 400         | PER100 - FilingPeriod provided is not a valid period on customer.                             |
+| PIR-EM400 6 | Any FilingPeriod with any month != 03 or day != 31<br>e.g. "2023-01-31" or "2023-03-01"                                                                                                    | 400         | PER100 - FilingPeriod provided is not a valid period on customer.                             |
+| PIR-EM400 7 | Any FilingPeriod with any future filing date<br>e.g. "2099-03-31"                                                                                                                          | 400         | PER100 - FilingPeriod provided is not a valid period on customer.                             |
+| PIR-EM400 8 | IRD# = 139276329 and no PieIRD                                                                                                                                                             | 400         | PIR101 - PieIRD must be provided.                                                             |
+| PIR-EM404 1 | [Any IRD# using a wrong endpoint. Example: https://mock-pir.ird.digitalpartner.services/gateway/calculators/wrong](https://mock-pir.ird.digitalpartner.services/gateway/calculators/wrong) | 404         | Not found                                                                                     |
+| PIR-EM405 1 | Using method GET                                                                                                                                                                           | 405         | Method Not Allowed                                                                            |
 
 >**NOTE:** The emulated service is not managing authentication. Access delegation/restriction is not emulated and any user has access to the test data.
-
-
-
-
-<a name="TestEnvironmentInformation"></a>  
-## Test environment information
----
-### Test environment URLs
-| End point|  URL|
-|--|--|
-| Testing | https://test5.services.ird.govt.nz:4046/gateway/calculators/pir |    
-
->**NOTE:** These endpoints are subject to change due to environment updates in the future. 
-
-### Test scenarios mind map
-
-- [View larger image](images/PIR%20Calculator%20API%20Onboarding%20scenarios%20Mindmap.png)
-![Test Scenarios](images/PIR%20Calculator%20API%20Onboarding%20scenarios%20Mindmap.png)
 
 ### Test scenarios report template
 
